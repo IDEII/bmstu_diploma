@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Graph DB Interface</title>
+
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <div class="query-input-section">
+        <div class="query-operations-container">
+            <div class="file-upload-section">
+                <h4>Выполнить запросы из файла</h4>
+                <div class="file-upload-box">
+                    <input type="file" id="queriesFile" accept=".cypher,.txt">
+                    <label for="queriesFile" class="custom-file-upload">
+                        <i class="fas fa-folder-open"></i> <span id="file-name">Выбрать файл</span>
+                    </label>
+                    <button id="uploadBtn"><i class="fas fa-cloud-upload-alt"></i> Выполнить</button>
+                </div>
+            </div>
+
+            <div class="cypher-query-section">
+                <h4>Выполнить Cypher запрос</h4>
+                <div class="query-controls">
+                    <textarea id="cypherQuery" rows="3" placeholder="MATCH (n) RETURN n"></textarea>
+                    <button id="runQueryBtn" class="run-query-button"><i class="fas fa-play"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel control-panel">
+            <h3>Метаданные</h3>
+            
+            <div class="control-section">
+                <h4>Метаданные главного узла</h4>
+                <button id="getMasterInfoBtn">Обновить метаданные</button>
+                <div id="masterInfo" class="info-box scrollable-box"></div>
+            </div>
+
+            <div class="control-section">
+                <h4>Метаданные подчиненного узла</h4>
+                <select id="workerSelect">
+                    <option value="">Выбрать узел...</option>
+                </select>
+                <button id="getWorkerInfoBtn">Получить метаданные</button>
+                <div id="workerInfo" class="info-box scrollable-box"></div>
+            </div>
+        </div>
+
+        <div class="panel result-panel">
+            <h2>Результат</h2>
+            <div id="response" class="info-box"></div>
+            <div id="graph-container"></div>
+        </div>
+
+        <div class="panel details-panel">
+            <h2>Детали вершины</h2>
+            <div id="elementDetails" class="info-box">
+                <p>Наведите на вершину или ребро</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/app.js"></script>
+</body>
+</html>
