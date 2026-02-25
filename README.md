@@ -17,8 +17,8 @@
 * Получение результирующих графов
 
 ## Запуск
-. Установить зависимости Go
-. Запустить контейнер с Neo4j
-. Запустить узлы `go run main.go -cmd=worker -addr IP:PORT -id num -neo4j-port PORT`
-. Запустить `go run main.go -cmd=master -cohorts=IPs -web-addr=:PORT`
-. Открыть `localhost:PORT`
+1. Установить зависимости Go
+1. Запустить контейнер с Neo4j
+1. Запустить узлы `go run main.go -cmd=worker -addr IP:PORT -id num -neo4j-port PORT`
+1. Запустить `go run main.go -cmd=master -cohorts=IPs -web-addr=:PORT`
+1. Открыть `localhost:PORT`
